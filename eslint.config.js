@@ -7,7 +7,11 @@ import tseslint from 'typescript-eslint'
 export default tseslint.config(
   { ignores: ['dist'] },
   {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    extends: [
+      js.configs.recommended,
+      ...tseslint.configs.recommended,
+      'plugin:@typescript-eslint/recommended', // Menambahkan dukungan TypeScript
+    ],
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
@@ -23,6 +27,10 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
+      'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }], 
+      'react/jsx-filename-extension': ['warn', { extensions: ['.jsx', '.tsx'] }], 
+      'react-hooks/rules-of-hooks': 'off', 
+      'react-hooks/exhaustive-deps': 'off', 
     },
   },
 )
