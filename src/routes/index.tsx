@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 
 import App from "../App";
 import Page404 from "../components/404";
@@ -14,7 +14,7 @@ import ProtectedRoute from "../middleware/Protected";
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Navigate to="/signin" />,
   },
   {
     path: "*",
